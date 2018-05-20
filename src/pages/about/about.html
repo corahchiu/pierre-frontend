@@ -7,7 +7,16 @@
 </ion-header>
 
 <ion-content padding>
-
-  <button (click)=readList(list)>Speak</button>
+  <table>
+    <tr *ngFor="let phrase of phrases">
+      <td (click)=speak(phrase)>{{phrase}}</td>
+    </tr>
+  </table>
+  <form>
+    <input type="text" #phrase>
+    <button type="submit" (click)=addNewPhrase(phrase.value)>Add</button>
+  </form>
+  <button (click)=readPhrases(phrases)>Read All</button>
+  <button (click)=displayData()>Display</button>
 
 </ion-content>

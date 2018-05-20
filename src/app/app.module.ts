@@ -11,7 +11,9 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TextToSpeech } from '@ionic-native/text-to-speech';
-
+import { FavoriteProvider } from '../providers/favorite/favorite';
+import { IonicStorageModule } from '@ionic/storage';
+ 
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { TextToSpeech } from '@ionic-native/text-to-speech';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -37,7 +40,8 @@ import { TextToSpeech } from '@ionic-native/text-to-speech';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TextToSpeech
+    TextToSpeech,
+    FavoriteProvider
   ]
 })
 export class AppModule {}
